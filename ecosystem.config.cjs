@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'api',
+      name: 'app',
       script: 'dist/index.js', // This is where your compiled TypeScript file will run from
       instances: 'max', // Use all CPU cores available for max performance
       exec_mode: 'cluster', // Cluster mode to run the app across multiple CPU cores
@@ -16,7 +16,6 @@ module.exports = {
       },
     },
   ],
-
   deploy: {
     /* production: {
       user: 'your-username',
