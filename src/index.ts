@@ -1,14 +1,19 @@
+// Export types
+export * from "./types";
+
+// Export utility functions
+export * from "./utils/fileUtils";
+export * from "./utils/projectUtils";
+
+// Export main functionality
+// TODO: Uncomment these exports once the service modules are created
+// export * from "./services/fileService";
+// export * from "./services/projectService";
+
+// If you need to expose the Express app for advanced usage
 import express from "express";
-import fileManagementRouter from "./api/fileManagement";
-import projectRoutes from "./api/projectRoutes";
-
-const app = express();
-const port = process.env.PORT || 3000;
-
-app.use(express.json());
-app.use("/api", fileManagementRouter);
-app.use("/api", projectRoutes);
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+export const createApp = (): express.Application => {
+  const app = express();
+  app.use(express.json());
+  return app;
+};
